@@ -1,0 +1,32 @@
+########################################################################################
+## makeCacheMatrix is a function that creates a special
+## "matrix" which is a list containing a function to
+## set: set the value of the matrix
+## get: get the value of the vector
+## setsolve:  set the value of the inverse of the matrix in cache
+## getsolve:  get the value of the inverse of the matrix from cache
+##
+## x is the input matrix to the function and it is assumed that it is a square matrix.
+## No explicit evaluation is occurring to ensure that it is a square matrix or not.
+## If the input matrix is not provided, it is defaulted to an empty matrix
+
+###########################################################################################
+## cachesolve takes the special "matrix" returned by `makeCacheMatrix`  
+## (the output of makeCacheMatrix) as input.  It looks
+## for whether the inverse of the matrix has been calculated before and the 
+## result cached, and if so, returns the inverse matrix from cached data.
+## 
+## If the x$getsolve() is null (that is the inverse has not been calculated and cached before)
+## then the function evaluates the inverse and caches the result and returns the inverse matrix
+## to the caller of the function
+##
+## When cacheSolve is called the first time, the inverse isn't found in the cache so it is calculated.  
+## When cacheSolve is called the 2nd and subsequent times for the same matrix, the inverse is  returned from the cached data
+##
+## Extra: The function will not error out if argument 'x' is not passed.  Instead it will start
+## with an identity matrix and return it's inverse.
+## You can test that by calling cacheSolve() without passing any argument.
+## 
+## If an invalid argument is passed to the function, it will error out. No other
+## checks have been added to the function to avoid such errors
+##
